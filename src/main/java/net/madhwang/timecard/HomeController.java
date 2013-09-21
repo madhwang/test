@@ -1,4 +1,4 @@
-package net.madhwang.timcard;
+package net.madhwang.timecard;
 
 import java.text.DateFormat;
 import java.util.Date;
