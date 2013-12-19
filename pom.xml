@@ -117,32 +117,60 @@
 			<scope>test</scope>
 		</dependency>   
 	
-		<!--  mysql  -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.26</version>
-		</dependency>
+		</dependency>     
 		
-		<!-- mybatis -->
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis-spring</artifactId>
-			<version>1.2.0</version>
-		</dependency>
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
-			<version>3.2.2</version>
+			<version>3.2.3</version>
 		</dependency>
 		<dependency>
-			<groupId>commons-dbcp</groupId>
-			<artifactId>commons-dbcp</artifactId>
-			<version>20030825.184428</version>
-		</dependency>		     
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.2.1</version>
+		</dependency>		
+		<dependency>
+			 <groupId>commons-dbcp</groupId>
+			 <artifactId>commons-dbcp</artifactId>
+			 <version>1.4</version>
+		</dependency>	
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok-maven-plugin</artifactId>
+			<version>1.12.2.0</version>
+		</dependency>
 	</dependencies>
     <build>
+    	<!--  소스파일, 테스트 파일 등의 경로를 지정하자 -->
+		<sourceDirectory>${project.basedir}/src/java</sourceDirectory>
+		<outputDirectory>target/classes</outputDirectory>
+		<!-- 
+		<scriptSourceDirectory>${project.basedir}/scripts</scriptSourceDirectory>
+		 -->
+		<testSourceDirectory>${project.basedir}/src/test</testSourceDirectory>
+		<testOutputDirectory>${project.basedir}/target/test-classes</testOutputDirectory>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/java</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>${project.basedir}/src/test</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</testResource>
+		</testResources>
         <plugins>
+        	<!-- 
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
                 <version>2.9</version>
@@ -157,6 +185,7 @@
                     <downloadJavadocs>true</downloadJavadocs>
                 </configuration>
             </plugin>
+             -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -169,6 +198,7 @@
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
+            <!-- 
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -177,6 +207,7 @@
                     <mainClass>org.test.int1.Main</mainClass>
                 </configuration>
             </plugin>
+            -->
         </plugins>
     </build>
 </project>
