@@ -6,10 +6,10 @@
 	<!--  세팅은 레퍼런스를 보고 추가하자  -->
 	<settings>
 		<setting name="cacheEnabled" value="false"/>
-		<setting name="useColumnLabel" value="false"/>
-		<setting name="multipleResultSetsEnable" value="false"/>
+		<setting name="defaultExecutorType" value="REUSE"/>
+		<setting name="jdbcTypeForNull" value="NULL"/>
 	</settings>
-	<mappers>
+	<!-- <mappers>
 		<mapper resource="net/madhwang/timecard/**/*.xml"/>
-	</mappers>
+	</mappers-->
 </configuration>
