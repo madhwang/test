@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.madhwang.core.dao.Member">
+
+	<resultMap type="member" id="member">
+		<result property="memberNo" column="member_no"/>
+		<result property="memberName" column="member_name"/>
+	</resultMap>
+
+
+	<sql id="column">
+		MBR.member_no,
+		MBR.member_name
+	</sql>
+
+
+	<select id="selectOne" parameterType="member" resultMap="member">
+		SELECT
+			<include refid="column"/>
+		FROM
+			member MBR
+		WHERE
+			MBR.member_no = #{memberNo}
+	</select>
+
+
+	<insert id="insert" parameterClass="string">
+		INSERT INTO 
+			member
+			(
+				member_name
+			)
+			VALUES
+			(
+				#{memberName}
+			)
+	</insert>
+
+	<update id="update" parameterType="member">
+		UPDATE
+			member
+		SET
+			member_name = #{memberName}
+		WHERE
+			member_no = #{memberNo}
+	</update>
+
+	<delete id="delete" parameterType="member">
+		DELETE FROM
+			member
+		WHERE
+			member_no = #{memberNo}	
+	</delete>
+</mapper>
