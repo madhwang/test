@@ -23,7 +23,7 @@
 				<value>classpath*:/net/madhwang/timecard/**/*.xml</value>
 			</array>
 		</property>
-		<property name="typeAliasesPackage" value="net.madhwang.core"></property>
+		<property name="typeAliasesPackage" value="net.madhwang.timecard.core"></property>
 	</bean>
 	
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">

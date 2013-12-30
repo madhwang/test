@@ -211,8 +211,7 @@
 			</testResource>
 		</testResources>
         <plugins>
-        	<!-- 
-            <plugin>
+            <!-- plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
                 <version>2.9</version>
                 <configuration>
@@ -225,15 +224,15 @@
                     <downloadSources>true</downloadSources>
                     <downloadJavadocs>true</downloadJavadocs>
                 </configuration>
-            </plugin>
-             -->
+            </plugin-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.5.1</version>
+                <version>3.1</version>
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
+                   	<encoding>UTF-8</encoding>
                     <compilerArgument>-Xlint:all</compilerArgument>
                     <showWarnings>true</showWarnings>
                     <showDeprecation>true</showDeprecation>
@@ -253,7 +252,15 @@
 						</configuration>
 			  		</execution>
 				</executions>
-			</plugin>             
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<warSourceDirectory>web</warSourceDirectory>
+				</configuration>
+			</plugin>
             <!-- 
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
