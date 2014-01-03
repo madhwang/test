@@ -13,7 +13,6 @@
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 	
-	
 	<import resource="classpath:mybatis-context.xml"/>
 <!-- 	<tx:advice id="transactionAdvice">
 		<tx:attributes>
