@@ -23,7 +23,7 @@ public class MemberDAO {
 	{
 		Member member = new Member();
 		member.setMemberNo(memberNo);
-		sqlSession.selectOne(NAME_SPACE+"select",member);
+		sqlSession.selectOne(NAME_SPACE+"selectOne",member);
 		return member;
 	}
 }

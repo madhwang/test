@@ -19,6 +19,7 @@
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
 	<context:annotation-config/>
+
 	<!-- Enables the Spring MVC @Controller programming model 	-->
 	<mvc:annotation-driven />
 
@@ -33,8 +34,9 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
-	<context:component-scan base-package="net.madhwang.timecard" />
 	
-	
+	<context:component-scan base-package="net.madhwang.timecard">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
 	
 </beans>

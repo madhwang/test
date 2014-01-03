@@ -23,10 +23,10 @@
 				<value>classpath*:/net/madhwang/timecard/**/*.xml</value>
 			</array>
 		</property>
-		<property name="typeAliasesPackage" value="net.madhwang.timecard.core"></property>
+		<property name="typeAliasesPackage" value="net.madhwang.timecard.core"/>
 	</bean>
 	
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg ref="sqlSessionFactory"/>
+		<constructor-arg index="0" ref="sqlSessionFactory"/>
 	</bean>
 </beans>

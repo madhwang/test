@@ -18,7 +18,7 @@
 		SELECT
 			<include refid="column"/>
 		FROM
-			member MBR
+			tc_member MBR
 		WHERE
 			MBR.member_no = #{memberNo}
 	</select>
@@ -26,7 +26,7 @@
 
 	<insert id="insert" parameterType="member">
 		INSERT INTO 
-			member
+			tc_member
 			(
 				member_name
 			)
@@ -38,7 +38,7 @@
 
 	<update id="update" parameterType="member">
 		UPDATE
-			member
+			tc_member
 		SET
 			member_name = #{memberName}
 		WHERE
@@ -47,7 +47,7 @@
 
 	<delete id="delete" parameterType="member">
 		DELETE FROM
-			member
+			tc_member
 		WHERE
 			member_no = #{memberNo}	
 	</delete>
