@@ -1,4 +1,4 @@
-package net.madhwang.timecard.core;
+package net.madhwang.timecard.model;
 
 import java.sql.Time;
 

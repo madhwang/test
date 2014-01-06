@@ -3,8 +3,8 @@
 	<wb-module deploy-name="TimeCard_Service">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/java"/>
-        <wb-resource deploy-path="/" source-path="/web" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/conf"/>
+        <wb-resource deploy-path="/" source-path="/web" tag="defaultRootSource"/>
 		<property name="java-output-path" value="target/classes"/>
         <property name="context-root" value="timecard"/>
 	</wb-module>

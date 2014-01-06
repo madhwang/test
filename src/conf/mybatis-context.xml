@@ -8,7 +8,6 @@
 		<property name="url" value="jdbc:mysql://localhost:3306/timecard"/>
 		<property name="username" value="timecard"/>
 		<property name="password" value="timecard"/>
-		<!--    개발 완료 후 1차 개선으로 idle 타임등을 추가하자   -->
 	</bean>
 	
 	<!-- bean id="transactionManager-main" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -23,7 +22,7 @@
 				<value>classpath*:/net/madhwang/timecard/**/*.xml</value>
 			</array>
 		</property>
-		<property name="typeAliasesPackage" value="net.madhwang.timecard.core"/>
+		<property name="typeAliasesPackage" value="net.madhwang.timecard"/>
 	</bean>
 	
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">

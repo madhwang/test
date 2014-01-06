@@ -1,8 +1,9 @@
-package net.madhwang.timecard.core.dao;
+package net.madhwang.timecard.dao;
+
 
 import javax.annotation.Resource;
 
-import net.madhwang.timecard.core.Member;
+import net.madhwang.timecard.model.Member;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;

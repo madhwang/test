@@ -1,6 +1,4 @@
-package net.madhwang.timecard.core.dao;
-
-import static org.junit.Assert.*;
+package net.madhwang.timecard.dao;
 
 import javax.inject.Inject;
 
