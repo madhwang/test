@@ -13,17 +13,6 @@
 		MBR.member_name
 	</sql>
 
-
-	<select id="selectOne" parameterType="member" resultMap="member">
-		SELECT
-			<include refid="column"/>
-		FROM
-			tc_member MBR
-		WHERE
-			MBR.member_no = #{memberNo}
-	</select>
-
-
 	<insert id="insert" parameterType="member">
 		INSERT INTO 
 			tc_member
@@ -51,4 +40,13 @@
 		WHERE
 			member_no = #{memberNo}	
 	</delete>
+
+	<select id="selectOne" parameterType="member" resultMap="member">
+		SELECT
+			<include refid="column"/>
+		FROM
+			tc_member MBR
+		WHERE
+			MBR.member_no = #{memberNo}
+	</select>
 </mapper>

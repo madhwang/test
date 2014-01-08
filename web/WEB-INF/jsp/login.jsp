@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>멤버 리스트</title>
+<title>로그인</title>
 <jsp:include page="./common/include.jsp"/>
 </head>
 <body>
