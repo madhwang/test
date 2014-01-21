@@ -5,23 +5,29 @@
 	<resultMap type="member" id="member">
 		<result property="memberNo" column="member_no"/>
 		<result property="memberName" column="member_name"/>
+		<result property="memberPassword" column="member_password"/>
 	</resultMap>
 
 
 	<sql id="column">
 		MBR.member_no,
-		MBR.member_name
+		MBR.member_name,
+		MBR.member_password
 	</sql>
 
 	<insert id="insert" parameterType="member">
 		INSERT INTO 
 			tc_member
 			(
-				member_name
+				member_no,
+				member_name,
+				member_password
 			)
 			VALUES
 			(
-				#{memberName}
+				#{memberNo},
+				#{memberName},
+				#{memberPassword}
 			)
 	</insert>
 
@@ -29,7 +35,8 @@
 		UPDATE
 			tc_member
 		SET
-			member_name = #{memberName}
+			member_name = #{memberName},
+			member_password = #{memberPassword}
 		WHERE
 			member_no = #{memberNo}
 	</update>
