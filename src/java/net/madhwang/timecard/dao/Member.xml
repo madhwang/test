@@ -6,6 +6,7 @@
 		<result property="memberNo" column="member_no"/>
 		<result property="memberName" column="member_name"/>
 		<result property="memberPassword" column="member_password"/>
+		<association property="timeRecord" javaType="TimeRecord" resultMap="net.madhwang.core.dao.TimeRecord.timeRecord"></association>
 	</resultMap>
 
 
@@ -48,12 +49,24 @@
 			member_no = #{memberNo}	
 	</delete>
 
-	<select id="selectOne" parameterType="member" resultMap="member">
+	<select id="selectOneByMemberNo" parameterType="member" resultMap="member">
 		SELECT
 			<include refid="column"/>
 		FROM
 			tc_member MBR
 		WHERE
 			MBR.member_no = #{memberNo}
+	</select>
+	
+	<select id="selectListWithRecordTime" parameterType="int" resultMap="member">
+		SELECT
+			<include refid="column"/>,
+			<include refid="net.madhwang.core.dao.TimeRecord.column"/>
+		FROM
+			tc_member MBR 
+			LEFT OUTER JOIN
+			tc_time_record REC
+			ON MBR.member_no = REC.member_no AND REC.record_ymd = CURDATE()		
+		LIMIT #{value},20
 	</select>
 </mapper>

@@ -21,6 +21,7 @@ public class Member implements UserDetails {
 	private String memberNo;
 	private String memberName;
 	private String memberPassword;
+	private TimeRecord timeRecord;
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

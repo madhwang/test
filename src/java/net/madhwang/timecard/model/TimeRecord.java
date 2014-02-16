@@ -1,16 +1,15 @@
 package net.madhwang.timecard.model;
 
-import java.sql.Time;
+import java.sql.Date;
+import java.sql.Timestamp;
 
 import lombok.Data;
 
-@Data 
+@Data
 public class TimeRecord {
 
-	private String recordYmd;
-	private Integer memberNo;
-	private Time startTime;
-	private Time endTime;
-	private Time timeTerm;
-
+	private Date recordYmd;
+	private String memberNo;
+	private Timestamp startTime;
+	private Timestamp endTime;
 }

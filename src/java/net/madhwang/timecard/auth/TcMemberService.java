@@ -23,7 +23,7 @@ public class TcMemberService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(final String memberNo) throws UsernameNotFoundException {
 
-		Member member = memberDAO.selectOne(memberNo);
+		Member member = memberDAO.selectOneByMemberNo(memberNo);
 		member.setMemberPassword((standardPasswordEncoder.encode(member.getPassword())));
 
 		return member;

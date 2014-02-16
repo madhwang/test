@@ -16,7 +16,7 @@ public class MemberDAOTest {
 
 	@Test
 	public void testSelectOne() {
-		System.out.println(memberDAO.selectOne("1"));
+		System.out.println(memberDAO.selectOneByMemberNo("1"));
 	}
 
 }
