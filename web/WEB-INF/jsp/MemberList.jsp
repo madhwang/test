@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,8 +9,10 @@
 <jsp:include page="./common/include.jsp"/>
 </head>
 <body>
-
-
+<sec:authentication property="Authorities"/>
+<div>
+	<button type="button" class="btn btn-info jq_myinfo">개인기록</button>
+</div>
 <table class="table">
 <thead>
 	<tr>
@@ -34,9 +36,9 @@
 				<c:when test="${empty member.timeRecord.startTime}">
 					<button type="button" class="btn btn-primary jq_punchin">출근</button>
 				</c:when>
-				<c:otherwise>
-					<button type="button" class="btn btn-primary">퇴근</button>
-				</c:otherwise>
+				<c:when test="${empty member.timeRecord.startTime}">
+					<button type="button" class="btn btn-primary jq_punchout">퇴근</button>
+				</c:when>
 			</c:choose>		
 		</c:if>		
 		</td>
@@ -44,7 +46,7 @@
 	</c:forEach>
 </tbody>
 </table>
-<form metod="post" action="./PunchIn">
+<form metod="post" name="Punch" action="">
 <input type="hidden" name="page" value="${page}">
 </form>
 <script>
@@ -52,7 +54,21 @@ $J(document).ready(function(){
 	$J('.jq_punchin').click(function(){
 		var memberNo = $J(this).data('member_no');
 		$J('#memberNo').val(memberNo);
+		$J('form[name=Punch]').attr('action', './PunchIn');
 		$J('form').submit();
+	});
+	
+	
+	$J('.jq_punchout').click(function(){
+		var memberNo = $J(this).data('member_no');
+		$J('#memberNo').val(memberNo);
+		$J('form[name=Punch]').attr('action', './PunchOut');
+		$J('form').submit();
+	});
+	
+	
+	$J('.jq_myinfo').click(function(){
+		location.href="./MyInfo";
 	});
 	
 });

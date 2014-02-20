@@ -10,28 +10,18 @@
 			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<!-- 
-	<context:annotation-config/>
-	<mvc:annotation-driven />
 		
-	<context:component-scan base-package="net.madhwang"/>
-	<context:component-scan base-package="net.madhwang">
-		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-	</context:component-scan>
  	<tx:advice id="transactionAdvice">
 		<tx:attributes>
 			<tx:method name="*"/>
 		</tx:attributes>
 	</tx:advice>
 	-->
-	<context:annotation-config/>
+<!-- 	<context:annotation-config/> -->
 	
 	<context:component-scan base-package="net.madhwang.timecard">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 	
-	
 	<import resource="classpath:mybatis-context.xml"/>
-
-	
-	
 </beans>

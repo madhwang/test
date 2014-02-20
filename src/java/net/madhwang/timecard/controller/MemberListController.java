@@ -38,7 +38,7 @@ public class MemberListController {
 		model.addAttribute("page", page);
 		model.addAttribute("loginMember", this.loginMember());
 
-		return "memberList";
+		return "MemberList";
 	}
 
 	@RequestMapping(value = "PunchIn")
@@ -48,6 +48,13 @@ public class MemberListController {
 		redirectAttrs.addAttribute("page", page);
 
 		return "redirect:/MemberList?page={page}";
+	}
 
+	@RequestMapping(value = "PunchOut")
+	public String punchOut(@RequestParam(defaultValue = "1") final Integer page, final RedirectAttributes redirectAttrs, final Model model) {
+		Member loginMember = this.loginMember();
+		timeRecordDAO.updateOfPunchOut(loginMember.getMemberNo());
+		redirectAttrs.addAttribute("page", page);
+		return "redirect:/MemberList?page={page}";
 	}
 }
