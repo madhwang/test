@@ -1,5 +1,7 @@
 package net.madhwang.timecard.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -30,13 +32,17 @@ public class MemberListController {
 
 	@RequestMapping(value = "MemberList")
 	public String memberList(@RequestParam(defaultValue = "1") final Integer page, final Model model) {
-
 		int startRowNum = (page - 1) * 10;
 
 		List<Member> members = memberDAO.selectListWithRecordTime(startRowNum);
 		model.addAttribute("members", members);
 		model.addAttribute("page", page);
 		model.addAttribute("loginMember", this.loginMember());
+
+		Date today = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
+		String year = sdf.format(today);
+		model.addAttribute("year", year);
 
 		return "MemberList";
 	}

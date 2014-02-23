@@ -68,7 +68,7 @@ $J(document).ready(function(){
 	
 	
 	$J('.jq_myinfo').click(function(){
-		location.href="./MyInfo";
+		location.href="./MyInfo/${year}";
 	});
 	
 });
