@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.madhwang.core.dao.TimeRecord">
+
+	<resultMap type="timeRecord" id="timeRecord">
+		<result property="recordYmd" column="record_ymd"/>
+		<result property="memberNo" column="member_no"/>
+		<result property="startTime" column="start_time"/>
+		<result property="endTime" column="end_time"/>
+	</resultMap>
+
+
+	<sql id="column">
+		REC.record_ymd,
+		REC.member_no,
+		REC.start_time,
+		REC.end_time
+	</sql>
+
+
+	<insert id="insertOfPunchIn" parameterType="timeRecord">
+		INSERT INTO
+			tc_time_record
+			(
+				record_ymd,
+				member_no,
+				start_time,
+				end_time
+			)
+			VALUES
+			(
+				CURDATE(),
+				#{memberNo},
+				NOW(),
+				NULL
+			)
+	</insert>
+	
+	<select id="selectOneOfMemberToday" parameterType="timeRecord" resultMap="timeRecord">
+		SELECT
+			<include refid="column"/>
+		FROM
+			tc_time_record REC
+		WHERE
+			record_ymd = CURDATE() 
+			AND
+			member_no = #{memberNo}
+	</select>
+	
+	<select id="selectRecordsOfMember" parameterType="map" resultMap="timeRecord">
+		SELECT
+			<include refid = "column"/>
+		FROM
+			tc_time_record REC
+		WHERE
+			record_ymd &gt;= STR_TO_DATE(#{yearMonth},'%Y%m')
+			AND
+			record_ymd &lt; STR_TO_DATE(#{nextYearMonth},'%Y%m')
+			AND
+			member_no = #{memberNo}
+	</select>
+	
+	<update id="updateOfPunchOut" parameterType="timeRecord">
+		UPDATE
+			tc_time_record
+		SET
+			end_time = NOW()
+		WHERE
+			record_ymd = CURDATE()
+			AND
+			member_no = #{memberNo}
+	</update>
+	
+	
+</mapper>

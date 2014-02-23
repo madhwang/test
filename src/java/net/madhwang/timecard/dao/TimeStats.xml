@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.madhwang.core.dao.TimeStats">
+
+	<resultMap type="timeStats" id="timeStats">
+		<result property="year" column="year" />
+		<result property="month" column="month" />
+		<result property="memberNo" column="member_no" />
+		<result property="totalRecordHour" column="total_record_hour" />
+	</resultMap>
+
+	<sql id="column">
+		STATS.year,
+		STATS.month,
+		STATS.member_no,
+		STATS.total_record_hour		
+	</sql>
+	
+	<insert id="insert" parameterType="timeStats">
+		INSERT INTO
+			tc_time_stats
+			(
+				year,
+				month,
+				member_no,
+				total_record_hour
+			)
+			VALUES
+			(
+				#{year},
+				#{month},
+				#{memberNo},
+				#{totalRecordHour}
+			)
+	</insert>
+	
+	<select id="selectYearStatsOfMember" parameterType="timeStats" resultMap="timeStats">
+		SELECT
+			<include refid="column"/>
+		FROM
+			tc_time_stats STATS
+		WHERE
+			year = #{year}
+			AND
+			member_no = #{memberNo}
+ 	</select>
+ 	
+ 	<update id="update" parameterType="timeStats">
+ 		UPDATE
+ 			tc_time_stats
+ 		<set>
+ 			<if test="totalRecordHour != null">total_record_hour = #{totalRecordHour},</if>
+		</set> 		
+ 		WHERE
+ 			year = #{year}
+ 			AND
+ 			month = #{month}
+ 			AND
+ 			member_no = #{memberNo}
+ 	</update>
+ 	
+ 	<delete id="delete" parameterType="timeStats">
+ 		DELETE FROM
+ 			tc_time_stats
+ 		WHERE
+ 			year = #{year}
+ 			AND
+ 			month = #{month}
+ 			AND
+ 			member_no = #{memberNo}
+ 	</delete>
+</mapper>
