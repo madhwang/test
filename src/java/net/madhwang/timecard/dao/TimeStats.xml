@@ -6,14 +6,14 @@
 		<result property="year" column="year" />
 		<result property="month" column="month" />
 		<result property="memberNo" column="member_no" />
-		<result property="totalRecordHour" column="total_record_hour" />
+		<result property="totalWorkingSeconds" column="total_working_seconds" />
 	</resultMap>
 
 	<sql id="column">
 		STATS.year,
 		STATS.month,
 		STATS.member_no,
-		STATS.total_record_hour		
+		STATS.total_working_seconds		
 	</sql>
 	
 	<insert id="insert" parameterType="timeStats">
@@ -23,14 +23,14 @@
 				year,
 				month,
 				member_no,
-				total_record_hour
+				total_working_seconds
 			)
 			VALUES
 			(
 				#{year},
 				#{month},
 				#{memberNo},
-				#{totalRecordHour}
+				#{totalWorkingSeconds}
 			)
 	</insert>
 	
@@ -49,7 +49,7 @@
  		UPDATE
  			tc_time_stats
  		<set>
- 			<if test="totalRecordHour != null">total_record_hour = #{totalRecordHour},</if>
+ 			<if test="totalWorkingSeconds != null">total_working_seconds = #{totalWorkingSeconds},</if>
 		</set> 		
  		WHERE
  			year = #{year}

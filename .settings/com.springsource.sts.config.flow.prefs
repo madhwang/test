@@ -1,0 +1,2 @@
+//com.springsource.sts.config.flow.coordinates\:http\://www.springframework.org/schema/batch\:/TimeCard_Service/src/conf/batch-job.xml=<?xml version\="1.0" encoding\="UTF-8"?>\n<graph>\n<element clazz\="JobModelElement" type\="job">\n<structure end\="805" endstart\="793" start\="530" startend\="559"/>\n<bounds height\="118" width\="129" x\="15" y\="17"/>\n</element>\n</graph>
+eclipse.preferences.version=1

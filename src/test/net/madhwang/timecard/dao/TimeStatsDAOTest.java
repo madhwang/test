@@ -21,13 +21,13 @@ public class TimeStatsDAOTest {
 		timeStats.setMemberNo("1");
 		timeStats.setMonth(1);
 		timeStats.setYear(2006);
-		timeStats.setTotalRecordHour(1);
+		timeStats.setTotalWorkingSeconds(1);
 		timeStatsDAO.delete(timeStats);
 		timeStatsDAO.insert(timeStats);
 
 		timeStatsDAO.selectYearStatsOfMember(2004, "1");
 
-		timeStats.setTotalRecordHour(4);
+		timeStats.setTotalWorkingSeconds(4);
 		timeStatsDAO.update(timeStats);
 
 	}

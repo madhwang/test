@@ -8,5 +8,5 @@ public class TimeStats {
 	private Integer year;
 	private Integer month;
 	private String memberNo;
-	private Integer totalRecordHour;
+	private Integer totalWorkingSeconds;
 }

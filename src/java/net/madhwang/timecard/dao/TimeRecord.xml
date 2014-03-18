@@ -71,5 +71,19 @@
 			member_no = #{memberNo}
 	</update>
 	
-	
+	<select id="selectWorkingSecondsOfMonth" parameterType="map" resultMap="net.madhwang.core.dao.TimeStats.timeStats">
+		SELECT
+			#{year} AS year,
+			#{month} AS month, 
+			member_no,
+			SUM(TIME_TO_SEC(end_time - start_time)) AS total_working_seconds
+		FROM 
+			tc_time_record
+		WHERE
+			record_ymd &gt;= STR_TO_DATE(#{yearMonth},'%Y%m')
+			AND
+			record_ymd &lt; STR_TO_DATE(#{nextYearMonth},'%Y%m')
+		GROUP BY
+			member_no
+	</select>
 </mapper>
