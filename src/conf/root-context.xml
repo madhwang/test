@@ -24,4 +24,5 @@
 	</context:component-scan>
 	
 	<import resource="classpath:mybatis-context.xml"/>
+	<import resource="classpath:batch-job.xml"/>
 </beans>
