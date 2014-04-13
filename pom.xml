@@ -229,6 +229,16 @@
 			<artifactId>lombok</artifactId>
 			<version>1.12.2</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.codehaus.jackson</groupId>
+		    <artifactId>jackson-mapper-asl</artifactId>
+		    <version>1.9.13</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>3.3.2</version>
+		</dependency>		
 	</dependencies>
     <build>
     	<!--  소스파일, 테스트 파일 등의 경로를 지정하자 -->

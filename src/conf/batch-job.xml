@@ -23,7 +23,7 @@
 	<bean id="runScheduler" class="net.madhwang.timecard.batch.RunScheduler"/>
  
 	<task:scheduled-tasks>
-		<task:scheduled ref="runScheduler" method="run" fixed-delay="5000" />
+		<task:scheduled ref="runScheduler" method="run" fixed-delay="360000" />
 	</task:scheduled-tasks>
 	
 	

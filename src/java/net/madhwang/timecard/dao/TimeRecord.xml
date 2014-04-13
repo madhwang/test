@@ -71,7 +71,7 @@
 			member_no = #{memberNo}
 	</update>
 	
-	<select id="selectWorkingSecondsOfMonth" parameterType="map" resultMap="net.madhwang.core.dao.TimeStats.timeStats">
+	<select id="selectWorkingSecondsOfMonth" parameterType="map" resultMap="net.madhwang.core.dao.TimeStat.timeStat">
 		SELECT
 			#{year} AS year,
 			#{month} AS month, 
