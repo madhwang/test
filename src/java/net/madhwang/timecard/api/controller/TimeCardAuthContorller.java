@@ -9,10 +9,10 @@ import javax.servlet.ServletRequest;
 
 import net.madhwang.timecard.dao.MemberDAO;
 import net.madhwang.timecard.dao.TimeRecordDAO;
-import net.madhwang.timecard.dao.TimeStatDAO;
+import net.madhwang.timecard.dao.TimeStatsDAO;
 import net.madhwang.timecard.model.Member;
 import net.madhwang.timecard.model.TimeRecord;
-import net.madhwang.timecard.model.TimeStat;
+import net.madhwang.timecard.model.TimeStats;
 
 import org.apache.commons.lang3.StringUtils;
 import org.codehaus.jackson.JsonGenerationException;
@@ -34,7 +34,7 @@ public class TimeCardAuthContorller {
 	private TimeRecordDAO timeRecordDAO;
 
 	@Inject
-	private TimeStatDAO timeStatDAO;
+	private TimeStatsDAO timeStatDAO;
 
 	@RequestMapping("/authConfirm")
 	public String authRequestReceive(final ServletRequest req, final String memberNo, final String passwd, final Model model) throws NoSuchAlgorithmException {
@@ -74,13 +74,13 @@ public class TimeCardAuthContorller {
 			return null;
 		}
 
-		List<TimeStat> timeStats = timeStatDAO.selectYearStatsOfMember(year, memberNo);
+		List<TimeStats> timeStatList = timeStatDAO.selectYearStatsOfMember(year, memberNo);
 
-		if (CollectionUtils.isEmpty(timeStats) == true) {
+		if (CollectionUtils.isEmpty(timeStatList) == true) {
 			return null;
 		}
 		ObjectMapper m = new ObjectMapper();
-		String jsonMonthlyRecords = m.writeValueAsString(timeStats);
+		String jsonMonthlyRecords = m.writeValueAsString(timeStatList);
 
 		return jsonMonthlyRecords;
 	}

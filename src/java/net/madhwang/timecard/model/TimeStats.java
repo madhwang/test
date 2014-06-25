@@ -3,7 +3,7 @@ package net.madhwang.timecard.model;
 import lombok.Data;
 
 @Data
-public class TimeStat {
+public class TimeStats {
 
 	private Integer year;
 	private Integer month;

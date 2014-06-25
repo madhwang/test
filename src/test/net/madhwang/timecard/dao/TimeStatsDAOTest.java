@@ -2,7 +2,7 @@ package net.madhwang.timecard.dao;
 
 import javax.inject.Inject;
 
-import net.madhwang.timecard.model.TimeStat;
+import net.madhwang.timecard.model.TimeStats;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,11 +13,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations = { "classpath*:/test-root-context.xml" })
 public class TimeStatsDAOTest {
 	@Inject
-	private TimeStatDAO timeStatDAO;
+	private TimeStatsDAO timeStatDAO;
 
 	@Test
 	public void testInsert() {
-		TimeStat timeStats = new TimeStat();
+		TimeStats timeStats = new TimeStats();
 		timeStats.setMemberNo("1");
 		timeStats.setMonth(1);
 		timeStats.setYear(2006);

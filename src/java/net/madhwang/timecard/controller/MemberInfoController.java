@@ -5,10 +5,10 @@ import java.util.List;
 import javax.inject.Inject;
 
 import net.madhwang.timecard.dao.TimeRecordDAO;
-import net.madhwang.timecard.dao.TimeStatDAO;
+import net.madhwang.timecard.dao.TimeStatsDAO;
 import net.madhwang.timecard.model.Member;
 import net.madhwang.timecard.model.TimeRecord;
-import net.madhwang.timecard.model.TimeStat;
+import net.madhwang.timecard.model.TimeStats;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MemberInfoController {
 
 	@Inject
-	private TimeStatDAO timeStatDAO;
+	private TimeStatsDAO timeStatDAO;
 
 	@Inject
 	private TimeRecordDAO timeRecordDAO;
@@ -32,7 +32,7 @@ public class MemberInfoController {
 	@RequestMapping("/MyInfo/{year}")
 	public String myInfoOfYear(@PathVariable final Integer year, final Model model) {
 		Member member = this.loginMember();
-		List<TimeStat> timeStatsLst = timeStatDAO.selectYearStatsOfMember(year, member.getMemberNo());
+		List<TimeStats> timeStatsLst = timeStatDAO.selectYearStatsOfMember(year, member.getMemberNo());
 		model.addAttribute("timeStatsLst", timeStatsLst);
 		return "MyInfoOfYear";
 	}

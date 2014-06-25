@@ -6,7 +6,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import net.madhwang.timecard.model.TimeRecord;
-import net.madhwang.timecard.model.TimeStat;
+import net.madhwang.timecard.model.TimeStats;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -44,7 +44,7 @@ public class TimeRecordDAO {
 		return this.sqlSession.update(TimeRecordDAO.NAME_SPACE + "updateOfPunchOut", timeRecord);
 	}
 
-	public List<TimeStat> selectWorkingSecondsOfMonth(final Integer year, final Integer month) {
+	public List<TimeStats> selectWorkingSecondsOfMonth(final Integer year, final Integer month) {
 		HashMap<String, String> param = new HashMap<String, String>();
 		param.put("year", year.toString());
 		param.put("month", month.toString());
