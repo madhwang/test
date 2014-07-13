@@ -41,14 +41,14 @@ public class TimeCardAuthContorller {
 
 		String resultMsg = "fail";
 		if (StringUtils.isNotEmpty(memberNo) == true && StringUtils.isNotEmpty(passwd) == true) {
-			final Member member = this.memberDAO.selectOneByMemberNo(memberNo);
+			final Member member = memberDAO.selectOneByMemberNo(memberNo);
 
 			if (memberNo.equals(member.getMemberNo()) == true && StringUtils.equals(member.getMemberPassword(), passwd) == true) {
 				resultMsg = "success";
 			}
 		}
 		model.addAttribute("resultMsg", resultMsg);
-		return "authConfirm";
+		return "AuthConfirm";
 	}
 
 	@RequestMapping("/dailyRecords")

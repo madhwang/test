@@ -11,6 +11,7 @@
 		security ="none" : 보안설정 무시
 	 -->
 	<security:http pattern="/common/**" security="none"/>
+	<security:http pattern="/api/**" security="none"/>
 	
 	<security:http auto-config="true" use-expressions="true">
 		<security:intercept-url pattern="/LoginForm" access="permitAll"/>
