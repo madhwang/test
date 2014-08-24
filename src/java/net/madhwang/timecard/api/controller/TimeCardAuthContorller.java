@@ -44,7 +44,7 @@ public class TimeCardAuthContorller {
 			final Member member = memberDAO.selectOneByMemberNo(memberNo);
 
 			if (memberNo.equals(member.getMemberNo()) == true && StringUtils.equals(member.getMemberPassword(), passwd) == true) {
-				resultMsg = "success";
+				resultMsg = "OK";
 			}
 		}
 		model.addAttribute("resultMsg", resultMsg);
